@@ -1,0 +1,17 @@
+site_name: Library模板文档
+site_author: kennie
+site_description: Library描述说明
+copyright: Copyright &copy; 2021 kennie
+
+repo_name: Github
+repo_url: https://github.com/kennielab/KennieLibTemplate
+
+docs_dir: 'docs'
+
+theme:
+  name: material
+  
+nav:
+  - 使用: index.md
+  - 开发日志: dev_log.md
+  - 更新日志: update_log.md
