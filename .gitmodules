@@ -1,0 +1,6 @@
+[submodule "configs"]
+	path = configs
+	url = git@github.com:kennielab/configs.git
+[submodule "library_res"]
+	path = library_res
+	url = git@github.com:kennielab/library_res.git
