@@ -22,6 +22,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
-//    implementation 'com.github.kennielab:KennieViewSwitcher:1.0.0'
-    implementation project(':library_switcher')
+    implementation 'com.github.kennielab:KennieViewSwitcher:1.0.1'
+    //implementation project(':library_switcher')
 }
