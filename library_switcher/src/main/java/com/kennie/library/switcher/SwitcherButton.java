@@ -16,18 +16,18 @@ import com.kennie.library.switcher.common.Extensions;
 
 import java.util.Set;
 
-public class SwitcherX extends Switcher{
+public class SwitcherButton extends Switcher{
     private final RectF switcherRect = new RectF(0f, 0f, 0f, 0f);
 
-    public SwitcherX(Context context) {
+    public SwitcherButton(Context context) {
         super(context);
     }
 
-    public SwitcherX(Context context, @Nullable AttributeSet attrs) {
+    public SwitcherButton(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public SwitcherX(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public SwitcherButton(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -58,8 +58,6 @@ public class SwitcherX extends Switcher{
         );
 
         if (!isChecked) {
-//            iconRect.left = getWidth() - switcherRadius - iconCollapsedWidth / 2 - (iconRadius - iconCollapsedWidth / 2);
-//            iconRect.right = getWidth() - switcherRadius + iconCollapsedWidth / 2 + (iconRadius - iconCollapsedWidth / 2);
             iconRect.left = getWidth() - switcherRadius - iconCollapsedWidth / 2;
             iconRect.right = getWidth() - switcherRadius + iconCollapsedWidth / 2;
 
@@ -69,7 +67,6 @@ public class SwitcherX extends Switcher{
                     getWidth() - iconRect.centerX() + iconClipRadius,
                     iconRect.centerY() + iconClipRadius
             );
-//            iconTranslateX = shadowOffset + switcherRadius * 2;
             iconTranslateX = -(getWidth() - shadowOffset - switcherRadius * 2);
         }
     }
@@ -78,11 +75,6 @@ public class SwitcherX extends Switcher{
     public void setIconProgress(float iconProgress) {
         if (this.iconProgress != iconProgress) {
             this.iconProgress = iconProgress;
-
-//            float iconOffset = Utils.lerp(0f, iconRadius - iconCollapsedWidth / 2, iconProgress);
-//            iconRect.left = getWidth() - switcherRadius - iconCollapsedWidth / 2 - iconOffset;
-//            iconRect.right = getWidth() - switcherRadius + iconCollapsedWidth / 2 + iconOffset;
-
             float iconOffset = Extensions.lerp(0f, iconRadius - iconCollapsedWidth / 2, 1 - iconProgress);
             iconRect.left = getWidth() - switcherRadius - iconCollapsedWidth / 2 - iconOffset;
             iconRect.right = getWidth() - switcherRadius + iconCollapsedWidth / 2 + iconOffset;
@@ -94,7 +86,6 @@ public class SwitcherX extends Switcher{
                     iconRect.centerX() + clipOffset,
                     iconRect.centerY() + clipOffset
             );
-//            if (!Utils.isLollipopAndAbove()) generateShadow();
             postInvalidateOnAnimation();
         }
     }
@@ -142,7 +133,6 @@ public class SwitcherX extends Switcher{
         switcherRect.top = onClickOffset + shadowOffset / 2;
         switcherRect.right = (float) getWidth() - onClickOffset - shadowOffset;
         switcherRect.bottom = (float) getHeight() - onClickOffset - shadowOffset - shadowOffset / 2;
-//        if (!Utils.isLollipopAndAbove()) generateShadow();
         invalidate();
     }
 }

@@ -36,7 +36,7 @@ import com.kennie.library.switcher.common.Extensions;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class Switcher extends View {
+abstract class Switcher extends View {
 
     protected float switcherRadius = 0f;
     protected float iconRadius = 0f;
@@ -125,7 +125,7 @@ public abstract class Switcher extends View {
     @Override
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
-        setCurrentColor(enabled ? (isChecked ? onColor :offColor) : DISABLE_COLOR);
+        setCurrentColor(enabled ? (isChecked ? onColor : offColor) : DISABLE_COLOR);
         postInvalidate();
     }
 
@@ -133,7 +133,7 @@ public abstract class Switcher extends View {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.Switcher,
                 defStyleAttr, R.style.Switcher);
 
-        switchElevation = typedArray.getDimension(R.styleable.Switcher_switcher_elevation, 12f);
+        switchElevation = typedArray.getDimension(R.styleable.Switcher_switcher_elevation, 0f);
         int switchShadowAlpha = typedArray.getInt(R.styleable.Switcher_switcher_shadow_alpha, 64);
         if (switchShadowAlpha < 0) {
             switchShadowAlpha = 0;
@@ -141,17 +141,16 @@ public abstract class Switcher extends View {
         if (switchShadowAlpha > 255) {
             switchShadowAlpha = 255;
         }
-//        int switchShadowColor = typedArray.getColor(R.styleable.BaseSwitcher_switcher_shadow_color, Color.BLACK);
 
         onColor = typedArray.getColor(R.styleable.Switcher_switcher_on_color, 0);
         offColor = typedArray.getColor(R.styleable.Switcher_switcher_off_color, 0);
         iconColor = typedArray.getColor(R.styleable.Switcher_switcher_icon_color, 0);
 
-        isChecked = typedArray.getBoolean(R.styleable.Switcher_android_checked, false);
+        isChecked = typedArray.getBoolean(R.styleable.Switcher_android_checked, true);
 
         setIconProgress(isChecked ? 0f : 1f);
 
-        setCurrentColor(isEnabled() ? (isChecked ? onColor :offColor) : DISABLE_COLOR);
+        setCurrentColor(isEnabled() ? (isChecked ? onColor : offColor) : DISABLE_COLOR);
 
         iconPaint.setColor(iconColor);
 
@@ -191,7 +190,7 @@ public abstract class Switcher extends View {
         });
         animatorSet.add(iconAnimator);
 
-        int toColor =  isEnabled() ? (isChecked ? offColor : onColor) : DISABLE_COLOR;
+        int toColor = isEnabled() ? (isChecked ? offColor : onColor) : DISABLE_COLOR;
 
         iconClipPaint.setColor(toColor);
 
@@ -217,7 +216,7 @@ public abstract class Switcher extends View {
         Set<Animator> set = new HashSet<>();
         generateAnimates(set);
 
-        animatorSet.addListener(new SimpleAnimatorListener(){
+        animatorSet.addListener(new SimpleAnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
                 isChecked = !isChecked;
@@ -229,7 +228,6 @@ public abstract class Switcher extends View {
         animatorSet.playTogether(set);
         animatorSet.start();
     }
-
 
 
     public void setCurrentColor(int currentColor) {
@@ -255,7 +253,7 @@ public abstract class Switcher extends View {
     /**
      * <p>Changes the isChecked state of this switch.</p>
      *
-     * @param checked true to check the switch, false to uncheck it
+     * @param checked       true to check the switch, false to uncheck it
      * @param withAnimation use animation
      */
     public void setChecked(boolean checked, boolean withAnimation) {
@@ -350,13 +348,13 @@ public abstract class Switcher extends View {
 
     public void setOnColor(int onColor) {
         this.onColor = onColor;
-        setCurrentColor(isEnabled() ? (isChecked ? onColor :offColor) : DISABLE_COLOR);
+        setCurrentColor(isEnabled() ? (isChecked ? onColor : offColor) : DISABLE_COLOR);
         postInvalidate();
     }
 
     public void setOffColor(int offColor) {
         this.offColor = offColor;
-        setCurrentColor(isEnabled() ? (isChecked ? onColor :offColor) : DISABLE_COLOR);
+        setCurrentColor(isEnabled() ? (isChecked ? onColor : offColor) : DISABLE_COLOR);
         postInvalidate();
     }
 

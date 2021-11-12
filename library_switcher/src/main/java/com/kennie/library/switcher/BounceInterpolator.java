@@ -2,7 +2,7 @@ package com.kennie.library.switcher;
 
 import android.view.animation.Interpolator;
 
-public class BounceInterpolator implements Interpolator {
+class BounceInterpolator implements Interpolator {
 
     private final double amplitude;
     private final double frequency;

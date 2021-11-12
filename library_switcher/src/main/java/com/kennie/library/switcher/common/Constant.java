@@ -2,7 +2,6 @@ package com.kennie.library.switcher.common;
 
 public class Constant {
 
-
     public static final long SWITCHER_ANIMATION_DURATION = 800L;
     public static final long COLOR_ANIMATION_DURATION = 300L;
     public static final long TRANSLATE_ANIMATION_DURATION = 200L;

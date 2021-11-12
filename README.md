@@ -28,7 +28,7 @@ XML
 -----
 
 ```xml
-<com.kennie.library.switcher.SwitcherX // or SwitcherC
+<com.kennie.library.switcher.SwitcherButton
     android:id="@+id/switcher"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
