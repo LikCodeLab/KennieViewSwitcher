@@ -22,7 +22,7 @@ Just add Switcher view in your layout XML and Switcher library in your project v
 
 ```gradle
 dependencies {
-  implementation 'com.github.kennielab:KennieViewSwitcher:1.0.0'
+  implementation 'com.github.kennielab:KennieViewSwitcher:1.0.1'
 }
 ```
 
