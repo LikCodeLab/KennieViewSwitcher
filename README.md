@@ -16,6 +16,8 @@ Created this cool [switch animation](https://dribbble.com/shots/5429846-Switcher
 USAGE
 -----
 
+ #### Latest Version：[![](https://jitpack.io/v/kennielab/KennieViewSwitcher.svg)](https://jitpack.io/#kennielab/KennieViewSwitcher)
+
 Just add Switcher view in your layout XML and Switcher library in your project via Gradle:
 
 ```gradle
