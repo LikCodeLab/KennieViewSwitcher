@@ -6,10 +6,17 @@ plugins {
 apply from: "${rootDir}/configs/tools/gradle/library.gradle"
 apply from: "${rootDir}/configs/tools/publish/publish.gradle"
 
+android {
+
+    defaultConfig {
+        versionName '1.0.0'
+        versionCode 100
+    }
+
+}
 
 dependencies {
     implementation depK.core
     implementation depX.appcompat
     implementation depX.material
-    implementation depX.constraintlayout
 }
